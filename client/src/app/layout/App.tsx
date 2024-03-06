@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Product } from '../models/product';
 import Catalog from '../../features/catalog/Catalog';
 import { Container, CssBaseline, ThemeProvider, createTheme,  } from '@mui/material';
 import Header from './Header';
+import { Outlet } from 'react-router-dom';
 
 
 function App() {
@@ -10,7 +11,7 @@ function App() {
   const paletteType = darkMode ? 'dark' : 'light';
   const theme = createTheme({
     palette:{
-      mode: paletteType,
+      mode: paletteType,  
       background:{
         default: paletteType ==='light' ? '#eaeaea' : '#121212'
       }
@@ -27,7 +28,7 @@ return (
   <CssBaseline/>
     <Header darkMode={darkMode} handleThemeChange={handleThemeChange} />
     <Container>
-    <Catalog/>
+    <Outlet/>
     </Container>
      
   </ThemeProvider>
